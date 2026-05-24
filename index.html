@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>STICKERVERSE MUSEUM 1.0 — 不憫を、宝石に。</title>
+<meta name="description" content="STICKERVERSE MUSEUM 1.0 ― Collection No.1。13の聖名簿。不憫を、宝石に。ステッカーバース、近日開廷。" />
+<meta property="og:title" content="STICKERVERSE MUSEUM 1.0 — 不憫を、宝石に。" />
+<meta property="og:description" content="Collection No.1、13の聖名簿。近日開廷。" />
+<meta property="og:image" content="./images/sku-01.jpeg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/jpeg" href="./images/sku-01.jpeg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+<style>
+/* ===============================
+   ROOT — Cream-Gold Luxury Palette
+   =============================== */
+:root{
+  --paper:        #FAF6EE;
+  --paper-deep:   #F2EBDC;
+  --ink:          #1F1A14;
+  --ink-soft:     #4A3F30;
+  --ink-mute:     #7C6F5A;
+  --gold:         #A87C26;
+  --gold-deep:    #7A5816;
+  --gold-light:   #D9B45A;
+  --rose:         #C7A4A0;
+  --line:         rgba(168,124,38,.22);
+  --line-soft:    rgba(31,26,20,.08);
+
+  --font-display: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-serif:   "Fraunces", "Shippori Mincho", Georgia, serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+html{scroll-behavior:smooth;background:var(--paper);}
+body{
+  font-family:var(--font-display);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  overflow-x:hidden;
+  position:relative;
+  min-height:100vh;
+}
+
+/* Paper grain overlay */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(rgba(168,124,38,.03) 1px, transparent 1px),
+    radial-gradient(rgba(31,26,20,.025) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+  pointer-events:none;
+  z-index:1;
+  opacity:.9;
+}
+
+/* Gold particle canvas */
+#particles{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+  opacity:.6;
+}
+
+main{position:relative;z-index:2;}
+
+::selection{background:var(--gold);color:var(--paper);}
+
+/* ===============================
+   STICKY CHAPTER NAV
+   =============================== */
+.chapter-nav{
+  position:fixed;
+  top:24px;left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:rgba(250,246,238,.78);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 10px;
+  display:flex;gap:4px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 8px 32px rgba(31,26,20,.06),
+    0 2px 8px rgba(168,124,38,.06);
+  opacity:0;
+  transform:translate(-50%, -20px);
+  transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.chapter-nav.visible{opacity:1;transform:translate(-50%, 0);}
+.chapter-nav a{
+  font-family:var(--font-display);
+  font-size:13px;font-weight:500;
+  color:var(--ink-soft);
+  text-decoration:none;
+  padding:8px 16px;
+  border-radius:999px;
+  letter-spacing:.05em;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+.chapter-nav a:hover{color:var(--ink);background:rgba(168,124,38,.08);}
+.chapter-nav a.active{
+  background:var(--ink);
+  color:var(--paper);
+  box-shadow:0 2px 8px rgba(31,26,20,.18);
+}
+
+/* ===============================
+   HERO — CHAPTER 0
+   =============================== */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:48px;
+  align-items:center;
+  padding:160px 80px 100px;
+  overflow:hidden;
+}
+.hero-mark{
+  position:absolute;
+  top:40px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-serif);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.5em;
+  color:var(--gold);
+  text-transform:uppercase;
+  opacity:0;
+  animation:fadeIn 1.2s ease .3s forwards;
+}
+.hero-mark::before,.hero-mark::after{
+  content:"";display:inline-block;
+  width:24px;height:1px;
+  background:var(--gold);
+  vertical-align:middle;
+  margin:0 16px;
+  opacity:.5;
+}
+
+.hero-text{
+  position:relative;z-index:2;
+}
+.hero-eyebrow{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:14px;
+  color:var(--gold);
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  margin-bottom:32px;
+  opacity:0;
+  animation:fadeUp .9s ease .6s forwards;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height:1.05;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  margin-bottom:40px;
+}
+.hero-title .line{display:block;overflow:hidden;}
+.hero-title .word{
+  display:inline-block;
+  transform:translateY(110%);
+  opacity:0;
+  animation:slideUp 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.hero-title .word.gold{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--gold);
+  position:relative;
+}
+.hero-title .word.gold::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;left:0;
+  width:100%;height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:scaleX 1.2s ease 2s forwards;
+}
+@keyframes slideUp{to{transform:translateY(0);opacity:1;}}
+@keyframes scaleX{to{transform:scaleX(1);}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{to{opacity:1;}}
+
+.hero-sub{
+  font-family:var(--font-display);
+  font-size: clamp(15px, 1.2vw, 18px);
+  color:var(--ink-soft);
+  line-height:1.95;
+  max-width:480px;
+  margin-bottom:48px;
+  opacity:0;
+  animation:fadeUp 1s ease 1.6s forwards;
+  transform:translateY(20px);
+}
+
+.hero-meta{
+  display:flex;gap:48px;
+  opacity:0;
+  animation:fadeUp 1s ease 2s forwards;
+  transform:translateY(20px);
+}
+.hero-meta-item .label{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:11px;
+  color:var(--gold);
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:8px;
+}
+.hero-meta-item .value{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+/* Hero image */
+.hero-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-frame{
+  position:relative;
+  width:100%;max-width:520px;
+  aspect-ratio:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-frame::before,.hero-frame::after{
+  content:"";
+  position:absolute;
+  border:1px solid var(--gold);
+  opacity:.35;
+}
+.hero-frame::before{
+  inset:-12px;
+  border-radius:0;
+  animation:framePulse 4s ease-in-out infinite;
+}
+.hero-frame::after{
+  inset:24px;
+  border-color:var(--line);
+}
+@keyframes framePulse{
+  0%,100%{opacity:.35;transform:scale(1);}
+  50%{opacity:.55;transform:scale(1.01);}
+}
+.hero-img{
+  width:88%;
+  height:auto;
+  filter:drop-shadow(0 30px 60px rgba(31,26,20,.18)) drop-shadow(0 10px 20px rgba(168,124,38,.08));
+  opacity:0;
+  animation:fadeIn 1.6s ease 1s forwards;
+  position:relative;
+  z-index:1;
+}
+.hero-caption{
+  position:absolute;
+  bottom:-40px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:.2em;
+  white-space:nowrap;
+  opacity:0;
+  animation:fadeIn 1s ease 2.4s forwards;
+}
+
+.scroll-cue{
+  position:absolute;
+  bottom:32px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:10px;
+  letter-spacing:.4em;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+  opacity:0;
+  animation:fadeIn 1s ease 3s forwards, bounce 2.4s ease 3.5s infinite;
+}
+.scroll-cue::after{
+  content:"";
+  display:block;
+  width:1px;height:32px;
+  background:linear-gradient(to bottom, var(--gold), transparent);
+  margin:12px auto 0;
+}
+@keyframes bounce{
+  0%,100%{transform:translate(-50%,0);}
+  50%{transform:translate(-50%,8px);}
+}
+
+/* ===============================
+   SECTION — universal
+   =============================== */
+section{
+  position:relative;
+  padding:140px 80px;
+}
+.section-mark{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:12px;
+  letter-spacing:.4em;
+  color:var(--gold);
+  text-transform:uppercase;
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:32px;
+}
+.section-mark::before{
+  content:"";
+  display:inline-block;
+  width:40px;height:1px;
+  background:var(--gold);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height:1.1;
+  letter-spacing:-.02em;
+  margin-bottom:32px;
+  color:var(--ink);
+}
+.section-title .em{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--gold);
+}
+.section-lead{
+  font-family:var(--font-display);
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height:2;
+  color:var(--ink-soft);
+  max-width:680px;
+}
+
+/* Scroll-reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-stagger > *{opacity:0;transform:translateY(30px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);}
+.reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+.reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.15s;}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.25s;}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.35s;}
+
+/* ===============================
+   CHAPTER I — PREFACE
+   =============================== */
+#chapter-1{
+  background:var(--paper);
+  border-top:1px solid var(--line-soft);
+}
+.preface-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap:96px;
+  align-items:start;
+  max-width:1320px;
+  margin:0 auto;
+}
+.preface-counter{
+  position:sticky;
+  top:140px;
+}
+.counter-number{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size: clamp(120px, 16vw, 220px);
+  line-height:1;
+  color:var(--gold);
+  letter-spacing:-.04em;
+  display:block;
+}
+.counter-label{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.4em;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+  display:block;
+  margin-top:8px;
+}
+.preface-body p{
+  font-family:var(--font-display);
+  font-size:18px;
+  line-height:2.1;
+  color:var(--ink-soft);
+  margin-bottom:32px;
+}
+.preface-body p:first-of-type{
+  font-family:var(--font-serif);
+  font-size:22px;
+  font-style:italic;
+  color:var(--ink);
+  line-height:1.8;
+}
+.preface-body p:first-of-type::first-letter{
+  font-family:var(--font-display);
+  font-style:normal;
+  font-size:72px;
+  float:left;
+  line-height:.85;
+  margin:6px 12px 0 0;
+  color:var(--gold);
+  font-weight:700;
+}
+.preface-signature{
+  margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:.15em;
+}
+.preface-signature span{color:var(--gold);font-weight:500;}
+
+/* ===============================
+   CHAPTER II — THE 13 SAINTS
+   =============================== */
+#chapter-2{
+  background:linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  position:relative;
+}
+.chapter2-header{
+  max-width:1320px;
+  margin:0 auto 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:48px;
+  flex-wrap:wrap;
+}
+
+/* Carousel */
+.carousel{
+  position:relative;
+  max-width:1320px;
+  margin:0 auto 100px;
+  overflow:hidden;
+  border-radius:2px;
+}
+.carousel-track{
+  display:flex;
+  transition:transform 1.1s cubic-bezier(.5,0,.3,1);
+  will-change:transform;
+}
+.carousel-slide{
+  flex:0 0 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:64px;
+  padding:64px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  align-items:center;
+  min-height:520px;
+}
+.carousel-img{
+  position:relative;
+  aspect-ratio:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.carousel-img::before{
+  content:"";
+  position:absolute;inset:-8px;
+  border:1px solid var(--line);
+}
+.carousel-img img{
+  max-width:88%;
+  height:auto;
+  filter:drop-shadow(0 24px 40px rgba(31,26,20,.14));
+}
+.carousel-info .sku-no{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.4em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+.carousel-info .sku-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height:1.15;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin-bottom:32px;
+}
+.carousel-info .sku-meta{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:24px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:32px;
+}
+.carousel-info .meta-row{
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--font-display);
+  font-size:14px;
+}
+.carousel-info .meta-row .k{
+  color:var(--ink-mute);
+  font-family:var(--font-serif);
+  font-style:italic;
+  letter-spacing:.1em;
+}
+.carousel-info .meta-row .v{
+  color:var(--ink);
+  font-weight:500;
+}
+.carousel-info .sku-tale{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:15px;
+  line-height:1.9;
+  color:var(--ink-soft);
+  margin-bottom:32px;
+}
+
+.carousel-controls{
+  display:flex;
+  gap:32px;
+  align-items:center;
+  margin-top:40px;
+  max-width:1320px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.carousel-dots{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  flex:1;
+}
+.carousel-dot{
+  width:24px;height:4px;
+  background:var(--line);
+  border:none;
+  cursor:pointer;
+  transition:all .4s ease;
+  padding:0;
+}
+.carousel-dot.active{
+  background:var(--gold);
+  width:48px;
+}
+.carousel-arrows{
+  display:flex;gap:12px;
+}
+.carousel-arrow{
+  width:48px;height:48px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  transition:all .3s ease;
+}
+.carousel-arrow:hover{
+  background:var(--ink);
+  color:var(--paper);
+  border-color:var(--ink);
+}
+
+/* Grid */
+.saints-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:24px;
+  max-width:1320px;
+  margin:0 auto;
+}
+.saint-card{
+  position:relative;
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  padding:24px;
+  transition:all .5s cubic-bezier(.2,.8,.2,1);
+  cursor:default;
+}
+.saint-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-4px);
+  box-shadow:
+    0 24px 48px rgba(31,26,20,.08),
+    0 8px 16px rgba(168,124,38,.06);
+}
+.saint-thumb{
+  aspect-ratio:1;
+  background:var(--paper-deep);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:20px;
+  overflow:hidden;
+  position:relative;
+}
+.saint-thumb img{
+  max-width:82%;
+  max-height:82%;
+  height:auto;
+  filter:drop-shadow(0 12px 24px rgba(31,26,20,.1));
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.saint-card:hover .saint-thumb img{
+  transform:scale(1.04);
+}
+.saint-no{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.saint-name{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:22px;
+  line-height:1.3;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.saint-color{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:12px;
+  color:var(--ink-mute);
+  letter-spacing:.1em;
+  margin-bottom:20px;
+}
+.saint-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:20px;
+  border-top:1px solid var(--line-soft);
+}
+.saint-price{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:18px;
+  color:var(--ink);
+}
+.saint-price .y{font-family:var(--font-serif);font-style:italic;color:var(--gold);}
+.notify-pill{
+  font-family:var(--font-display);
+  font-size:11px;
+  font-weight:500;
+  padding:7px 14px;
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--ink);
+  border-radius:999px;
+  cursor:pointer;
+  transition:all .3s ease;
+  letter-spacing:.05em;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.notify-pill:hover{
+  background:var(--ink);
+  color:var(--paper);
+}
+.notify-pill::after{
+  content:"→";
+  transition:transform .3s ease;
+}
+.notify-pill:hover::after{transform:translateX(3px);}
+
+/* Special card — Despair set */
+.saint-card.despair{
+  grid-column: span 2;
+  background:linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border:1px solid var(--gold);
+  padding:32px;
+}
+.saint-card.despair .saint-thumb{
+  background:transparent;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  aspect-ratio: 4/1;
+  padding:0;
+  margin-bottom:24px;
+}
+.saint-card.despair .saint-thumb .quad{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:10px;
+  aspect-ratio:1;
+}
+.saint-card.despair .saint-thumb img{
+  max-width:90%;
+  max-height:90%;
+}
+.saint-card.despair .saint-name{font-size:26px;}
+.saint-card.despair .saint-name .seal{
+  font-family:var(--font-serif);
+  font-style:italic;
+  color:var(--gold);
+  font-size:13px;
+  letter-spacing:.3em;
+  display:block;
+  margin-bottom:8px;
+  font-weight:400;
+}
+.saint-card.despair .saint-price{font-size:22px;}
+
+@media (max-width: 600px){
+  .saint-card.despair{grid-column: span 1;}
+  .saint-card.despair .saint-thumb{grid-template-columns:repeat(2,1fr);aspect-ratio:2/1;}
+}
+
+/* ===============================
+   CHAPTER III — CREED
+   =============================== */
+#chapter-3{
+  background:var(--ink);
+  color:var(--paper);
+  padding:160px 80px;
+}
+#chapter-3 .section-mark{color:var(--gold-light);}
+#chapter-3 .section-mark::before{background:var(--gold-light);}
+#chapter-3 .section-title{color:var(--paper);}
+#chapter-3 .section-title .em{color:var(--gold-light);}
+
+.creed-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:64px 96px;
+  max-width:1320px;
+  margin:80px auto 0;
+}
+.creed-item{position:relative;padding-left:48px;}
+.creed-item::before{
+  counter-increment:creed;
+  content:"0" counter(creed);
+  position:absolute;
+  left:0;top:4px;
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:14px;
+  color:var(--gold-light);
+  letter-spacing:.2em;
+}
+.creed-list{counter-reset:creed;}
+.creed-item h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:22px;
+  color:var(--paper);
+  margin-bottom:16px;
+  letter-spacing:-.01em;
+}
+.creed-item p{
+  font-family:var(--font-display);
+  font-size:15px;
+  line-height:2;
+  color:rgba(250,246,238,.7);
+}
+.creed-item .em{
+  font-family:var(--font-serif);
+  font-style:italic;
+  color:var(--gold-light);
+}
+
+/* ===============================
+   CHAPTER IV — OPENING SOON
+   =============================== */
+#chapter-4{
+  background:var(--paper);
+  text-align:center;
+  padding:180px 80px 140px;
+  position:relative;
+  overflow:hidden;
+}
+#chapter-4::before{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:1100px;height:1100px;
+  background:radial-gradient(circle, rgba(168,124,38,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.open-mark{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:12px;
+  letter-spacing:.5em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:32px;
+  position:relative;
+  z-index:1;
+}
+.open-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size: clamp(56px, 8vw, 120px);
+  line-height:1;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  margin-bottom:32px;
+  position:relative;
+  z-index:1;
+}
+.open-title .em{
+  font-family:var(--font-serif);
+  font-style:italic;
+  color:var(--gold);
+  font-weight:400;
+}
+.open-sub{
+  font-family:var(--font-display);
+  font-size:18px;
+  line-height:2;
+  color:var(--ink-soft);
+  max-width:560px;
+  margin:0 auto 56px;
+  position:relative;z-index:1;
+}
+
+.signup-form{
+  max-width:520px;
+  margin:0 auto;
+  position:relative;z-index:1;
+}
+.signup-row{
+  display:flex;
+  gap:0;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  padding:6px 6px 6px 24px;
+  background:var(--paper);
+  transition:all .3s ease;
+}
+.signup-row:focus-within{
+  box-shadow:0 0 0 4px rgba(168,124,38,.12);
+}
+.signup-row input{
+  flex:1;
+  border:none;
+  background:transparent;
+  padding:12px 0;
+  font-family:var(--font-display);
+  font-size:15px;
+  color:var(--ink);
+  outline:none;
+  min-width:0;
+}
+.signup-row input::placeholder{color:var(--ink-mute);font-family:var(--font-serif);font-style:italic;}
+.signup-btn{
+  background:var(--ink);
+  color:var(--paper);
+  border:none;
+  padding:12px 24px;
+  border-radius:999px;
+  font-family:var(--font-display);
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.05em;
+  cursor:pointer;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+.signup-btn:hover{background:var(--gold);}
+.signup-note{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-top:16px;
+  letter-spacing:.1em;
+}
+.signup-success{
+  display:none;
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:15px;
+  color:var(--gold);
+  margin-top:16px;
+}
+.signup-success.show{display:block;animation:fadeUp .6s ease forwards;}
+
+.open-counter{
+  display:flex;
+  justify-content:center;
+  gap:48px;
+  margin-top:96px;
+  flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.open-counter-item{text-align:center;}
+.open-counter-item .num{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:48px;
+  line-height:1;
+  color:var(--gold);
+  letter-spacing:-.02em;
+}
+.open-counter-item .lab{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+  margin-top:8px;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+footer{
+  background:var(--ink);
+  color:var(--paper);
+  padding:80px 80px 40px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap:64px;
+  max-width:1320px;
+  margin:0 auto 64px;
+}
+.footer-brand{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:32px;
+  letter-spacing:.02em;
+  margin-bottom:16px;
+  color:var(--paper);
+}
+.footer-tagline{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:14px;
+  color:rgba(250,246,238,.5);
+  letter-spacing:.2em;
+}
+.footer-col h4{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--gold-light);
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:12px;}
+.footer-col a{
+  font-family:var(--font-display);
+  font-size:14px;
+  color:rgba(250,246,238,.7);
+  text-decoration:none;
+  transition:color .3s ease;
+  display:inline-flex;
+  gap:6px;
+  align-items:center;
+}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-col a.cta{
+  background:var(--gold);
+  color:var(--ink);
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:500;
+  letter-spacing:.05em;
+}
+.footer-col a.cta:hover{background:var(--gold-light);color:var(--ink);}
+
+.footer-line{
+  height:1px;
+  background:rgba(250,246,238,.12);
+  margin:0 auto 32px;
+  max-width:1320px;
+}
+.footer-bottom{
+  max-width:1320px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:rgba(250,246,238,.4);
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 1100px){
+  .hero{grid-template-columns:1fr;padding:140px 32px 80px;text-align:center;gap:64px;}
+  .hero-text{order:2;}
+  .hero-visual{order:1;}
+  .hero-meta{justify-content:center;}
+  .hero-sub{margin-left:auto;margin-right:auto;}
+  section{padding:100px 32px;}
+  .preface-grid{grid-template-columns:1fr;gap:48px;}
+  .preface-counter{position:static;}
+  .carousel-slide{grid-template-columns:1fr;padding:40px;gap:32px;}
+  .creed-grid{grid-template-columns:1fr;gap:48px;}
+  .footer-grid{grid-template-columns:1fr;gap:48px;}
+  .chapter2-header{flex-direction:column;align-items:start;}
+  #chapter-4{padding:120px 32px;}
+  footer{padding:64px 32px 32px;}
+}
+@media (max-width: 600px){
+  .chapter-nav{padding:6px 8px;gap:2px;top:16px;}
+  .chapter-nav a{font-size:11px;padding:6px 10px;}
+  .hero{padding:120px 24px 60px;}
+  .hero-meta{gap:24px;}
+  section{padding:80px 24px;}
+  .saints-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Sticky Chapter Nav -->
+<nav class="chapter-nav" id="chapterNav">
+  <a href="#chapter-1" data-target="chapter-1">序文</a>
+  <a href="#chapter-2" data-target="chapter-2">13聖名簿</a>
+  <a href="#chapter-3" data-target="chapter-3">信条</a>
+  <a href="#chapter-4" data-target="chapter-4">近日開廷</a>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-mark">STICKERVERSE MUSEUM&nbsp;・&nbsp;EDITION 1.0</div>
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">Collection No.1</div>
+    <h1 class="hero-title">
+      <span class="line"><span class="word" style="animation-delay:.8s">不憫を、</span></span>
+      <span class="line"><span class="word gold" style="animation-delay:1.1s">宝石に。</span></span>
+    </h1>
+    <p class="hero-sub">
+      給料、消えた。家賃、来た。終電、逃した。<br>
+      涙のひとしずくに、真珠の輝きを。<br>
+      日々の小さな絶望に、最大の装飾を捧げる<br>
+      ステッカーバースの最初の聖名簿。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Edition</span>
+        <span class="value">No.1</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Saints</span>
+        <span class="value">13</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Status</span>
+        <span class="value">近日開廷</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-frame">
+      <img src="./images/sku-01.jpeg" alt="王冠が、重い ― パールグレー" class="hero-img" />
+      <div class="hero-caption">No.01 ― 王冠が、重い</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">scroll&nbsp;&nbsp;to&nbsp;&nbsp;enter</div>
+</header>
+
+<!-- ============ CHAPTER I ============ -->
+<section id="chapter-1">
+  <div class="preface-grid">
+    <div class="preface-counter reveal">
+      <span class="counter-number" data-count="13">0</span>
+      <span class="counter-label">The Sacred Thirteen</span>
+    </div>
+    <div class="preface-body reveal">
+      <div class="section-mark">Chapter I&nbsp;・&nbsp;Preface</div>
+      <h2 class="section-title">不憫は、<span class="em">美しい</span>。</h2>
+      <p>
+        私たちは、人生の小さな絶望を見逃さない。残高がゼロになる夜、推しが卒業する朝、家賃の請求書が郵便受けに到着する瞬間。これらは隠すべき恥ではなく、額装すべき芸術である。
+      </p>
+      <p>
+        ステッカーバースは、日常のpatheticな瞬間を、最高級の装飾で祝福する美術館だ。Collection No.1は、その最初の13の聖名簿——アシカ、アルパカ、アザラシの姿を借りた、現代を生きる私たちの肖像である。
+      </p>
+      <p>
+        涙には真珠を。ため息には金箔を。そして「もうダメだ」と呟くすべての夜に、宝石のような小さな1枚を。
+      </p>
+      <div class="preface-signature">
+        <span>STICKERVERSE</span>&nbsp;・&nbsp;Curated by すーさん
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER II ============ -->
+<section id="chapter-2">
+  <div class="chapter2-header reveal">
+    <div>
+      <div class="section-mark">Chapter II&nbsp;・&nbsp;The 13 Saints</div>
+      <h2 class="section-title">13の<span class="em">聖名簿</span>。</h2>
+    </div>
+    <p class="section-lead">
+      3つの種族——アシカ、アルパカ、アザラシ。<br>
+      12の絶望に、もう1つの&nbsp;<em style="color:var(--gold);font-style:italic;">絶望セット</em>&nbsp;を加えた、完全なるコレクション。
+    </p>
+  </div>
+
+  <!-- Auto-rotating carousel -->
+  <div class="carousel reveal" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Slides injected by JS -->
+    </div>
+  </div>
+  <div class="carousel-controls reveal">
+    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-arrows">
+      <button class="carousel-arrow" id="prevBtn" aria-label="前">‹</button>
+      <button class="carousel-arrow" id="nextBtn" aria-label="次">›</button>
+    </div>
+  </div>
+
+  <div style="margin-top:120px;max-width:1320px;margin-left:auto;margin-right:auto;">
+    <div class="section-mark reveal" style="margin-bottom:48px;">All Saints&nbsp;・&nbsp;Index</div>
+    <div class="saints-grid reveal-stagger" id="saintsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER III ============ -->
+<section id="chapter-3">
+  <div class="section-mark">Chapter III&nbsp;・&nbsp;The Creed</div>
+  <h2 class="section-title">私たちの<span class="em">信条</span>。</h2>
+  <p class="section-lead" style="color:rgba(250,246,238,.7);">
+    Stickerverseが守る、6つの誓い。<br>
+    宝石は、コンセプトから磨かれる。
+  </p>
+
+  <div class="creed-grid creed-list reveal-stagger">
+    <div class="creed-item">
+      <h3>不憫を、宝石に。</h3>
+      <p>日常の<span class="em">pathetic</span>な瞬間を、見逃さず、隠さず、最高級の装飾で迎える。それがすべての出発点である。</p>
+    </div>
+    <div class="creed-item">
+      <h3>100%、オリジナル。</h3>
+      <p>すべてのキャラクターはStickerverseの<span class="em">完全オリジナル</span>。既存ブランドやIPの模倣は、永久に行わない。</p>
+    </div>
+    <div class="creed-item">
+      <h3>日本語、ひとつだけ。</h3>
+      <p>ステッカーに乗る文字は<span class="em">日本語のみ</span>。装飾としての文字ではなく、感情そのものを刻印する。</p>
+    </div>
+    <div class="creed-item">
+      <h3>涙には、宝石を。</h3>
+      <p>悲しみを薄めない。むしろ、<span class="em">真珠とゴールド</span>で増幅させる。それが私たちのデザイン原則。</p>
+    </div>
+    <div class="creed-item">
+      <h3>高貴な質感。</h3>
+      <p>ジェリー樹脂、ベルベット、もちもち。<span class="em">3つの質感</span>で、3つの種族を表現する。妥協のない仕上げ。</p>
+    </div>
+    <div class="creed-item">
+      <h3>美術館として、編纂する。</h3>
+      <p>商品ではなく、<span class="em">作品</span>として並べる。Collection、Edition、Saint——美術用語で語る、それがMuseum 1.0。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER IV ============ -->
+<section id="chapter-4">
+  <div class="open-mark">Chapter IV&nbsp;・&nbsp;Opening Soon</div>
+  <h2 class="open-title">近日、<span class="em">開廷</span>。</h2>
+  <p class="open-sub reveal">
+    Collection No.1、まもなく公開。<br>
+    最初の入荷情報を、メールでお届けします。
+  </p>
+
+  <form class="signup-form reveal" id="signupForm">
+    <div class="signup-row">
+      <input type="email" id="emailInput" placeholder="あなたのメールアドレス" required />
+      <button type="submit" class="signup-btn">通知を受け取る</button>
+    </div>
+    <div class="signup-note">※ 入荷タイミングのみお知らせします。広告メールはお送りしません。</div>
+    <div class="signup-success" id="signupSuccess">✦ 登録完了。開廷の日に、最初の鐘をお鳴らしします。</div>
+  </form>
+
+  <div class="open-counter reveal-stagger">
+    <div class="open-counter-item">
+      <div class="num">13</div>
+      <div class="lab">Saints</div>
+    </div>
+    <div class="open-counter-item">
+      <div class="num">3</div>
+      <div class="lab">Lineages</div>
+    </div>
+    <div class="open-counter-item">
+      <div class="num">¥400</div>
+      <div class="lab">Per Saint</div>
+    </div>
+    <div class="open-counter-item">
+      <div class="num">¥1,500</div>
+      <div class="lab">Despair Set</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">STICKERVERSE</div>
+      <div class="footer-tagline">不憫を、宝石に。&nbsp;・&nbsp;ステッカーバース</div>
+    </div>
+    <div class="footer-col">
+      <h4>Museum</h4>
+      <ul>
+        <li><a href="#chapter-1">序文</a></li>
+        <li><a href="#chapter-2">13聖名簿</a></li>
+        <li><a href="#chapter-3">信条</a></li>
+        <li><a href="#chapter-4">近日開廷</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Acquisition</h4>
+      <ul>
+        <li><a href="#chapter-4">入荷通知に登録 →</a></li>
+        <li><a class="cta" href="#chapter-4">Mercari ショップ&nbsp;→</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="footer-bottom">
+    <div>© 2026 STICKERVERSE&nbsp;・&nbsp;All Saints Reserved</div>
+    <div>Museum 1.0&nbsp;・&nbsp;Edition No.1</div>
+  </div>
+</footer>
+
+<script>
+/* ===============================
+   DATA — The 13 Saints
+   =============================== */
+const SAINTS = [
+  {no:"01", name:"王冠が、重い", color:"パールグレー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-01.jpeg", tale:"金の王冠、真珠のネックレス。誰かが寄こした名誉が、首にずっしりと食い込む夜。"},
+  {no:"02", name:"残高、ゼロ",  color:"ロゼピンク", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-02.jpeg", tale:"IMPERIAL DEBT CARD、PAYMENT REFUSED。虹色の涙が頬を伝う、月末の決済画面。"},
+  {no:"03", name:"終電、逃した", color:"ラベンダー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-03.jpeg", tale:"くしゃくしゃの切符を抱きしめて、ホームに散らばる涙のしずく。"},
+  {no:"04", name:"散財、止まらず", color:"クリーム", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-04.jpeg", tale:"STICKERVERSE MAISONの紙袋から覗く、恍惚とした泣き顔。買い物は、薬。"},
+  {no:"05", name:"給料、消えた", color:"ブラック銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-05.png", tale:"給料明細、¥0×6マス。星屑の毛皮の中で、ふたつの涙が銀河を流れる。"},
+  {no:"06", name:"推し、卒業", color:"クリームアイボリー", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-06.png", tale:"ハート型のペンライト。最後の公演、最後の名前。世界が静かに終わる音。"},
+  {no:"07", name:"家賃、来た", color:"ネイビー銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-07.png", tale:"巨大な「家賃」封筒に頭を潰されながら、星屑の涙だけが煌めく。"},
+  {no:"08", name:"貯金、漏出中", color:"ローズピーチ", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-08.png", tale:"ティアラを頂きながら、真珠のしずくが一粒、また一粒、毛皮の外へ。"},
+  {no:"09", name:"氷山、溶けゆく", color:"パール白", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-09.png", tale:"足元の氷が、ゆっくりと小さくなっていく。それでもまだ、座っている。"},
+  {no:"10", name:"二度寝、しすぎた", color:"シーフォーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-10.png", tale:"星柄の高級枕に沈み込んで、Zzz。罪悪感さえも、もちもちに包まれて。"},
+  {no:"11", name:"冷蔵庫、空っぽ", color:"バタークリーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-11.png", tale:"開いた扉の向こうに、魚の骨が一本。空腹は、最も静かな絶望のひとつ。"},
+  {no:"12", name:"マッチング、ゼロ", color:"ダスティモーヴ", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-12.png", tale:"画面に表示された数字、0。割れたハートと共に流れる、もちもちの涙。"},
+];
+
+/* ===============================
+   CAROUSEL
+   =============================== */
+const track = document.getElementById('carouselTrack');
+const dotsBox = document.getElementById('carouselDots');
+
+SAINTS.forEach((s, i)=>{
+  const slide = document.createElement('div');
+  slide.className = 'carousel-slide';
+  slide.innerHTML = `
+    <div class="carousel-img"><img src="./images/${s.file}" alt="${s.name}" loading="${i<2?'eager':'lazy'}"/></div>
+    <div class="carousel-info">
+      <div class="sku-no">Saint No.${s.no}</div>
+      <h3 class="sku-name">${s.name}</h3>
+      <div class="sku-meta">
+        <div class="meta-row"><span class="k">Lineage</span><span class="v">${s.lineage}</span></div>
+        <div class="meta-row"><span class="k">Color</span><span class="v">${s.color}</span></div>
+        <div class="meta-row"><span class="k">Texture</span><span class="v">${s.texture}</span></div>
+        <div class="meta-row"><span class="k">Price</span><span class="v">${s.price}</span></div>
+      </div>
+      <p class="sku-tale">${s.tale}</p>
+      <a class="notify-pill" href="#chapter-4" data-sku="${s.no}">入荷通知を受け取る</a>
+    </div>`;
+  track.appendChild(slide);
+
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot' + (i===0?' active':'');
+  dot.setAttribute('aria-label', `Saint ${s.no}`);
+  dot.dataset.idx = i;
+  dotsBox.appendChild(dot);
+});
+
+let current = 0;
+let autoTimer;
+const total = SAINTS.length;
+const dots = document.querySelectorAll('.carousel-dot');
+
+function goTo(i){
+  current = (i + total) % total;
+  track.style.transform = `translateX(-${current*100}%)`;
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===current));
+}
+function next(){ goTo(current+1); }
+function prev(){ goTo(current-1); }
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{ next(); resetAuto(); });
+document.getElementById('prevBtn').addEventListener('click', ()=>{ prev(); resetAuto(); });
+dots.forEach(d => d.addEventListener('click', ()=>{ goTo(+d.dataset.idx); resetAuto(); }));
+
+function startAuto(){ autoTimer = setInterval(next, 5500); }
+function resetAuto(){ clearInterval(autoTimer); startAuto(); }
+startAuto();
+
+/* Pause when out of viewport (saves CPU) */
+const carouselEl = document.getElementById('carousel');
+const carouselObs = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){ startAuto(); }
+    else { clearInterval(autoTimer); }
+  });
+},{threshold:0.1});
+carouselObs.observe(carouselEl);
+
+/* ===============================
+   GRID — All Saints + Despair Set
+   =============================== */
+const grid = document.getElementById('saintsGrid');
+SAINTS.forEach((s,i)=>{
+  const card = document.createElement('article');
+  card.className = 'saint-card';
+  card.innerHTML = `
+    <div class="saint-thumb"><img src="./images/${s.file}" alt="${s.name}" loading="lazy"/></div>
+    <div class="saint-no">Saint No.${s.no}</div>
+    <h3 class="saint-name">${s.name}</h3>
+    <div class="saint-color">${s.lineage}&nbsp;・&nbsp;${s.color}</div>
+    <div class="saint-foot">
+      <div class="saint-price"><span class="y">¥</span>400</div>
+      <a class="notify-pill" href="#chapter-4" data-sku="${s.no}">入荷通知</a>
+    </div>`;
+  grid.appendChild(card);
+});
+
+/* Despair set — placeholder quadtych built from #01-#04 */
+const despair = document.createElement('article');
+despair.className = 'saint-card despair';
+despair.innerHTML = `
+  <div class="saint-thumb">
+    <div class="quad"><img src="./images/sku-01.jpeg" alt="01"/></div>
+    <div class="quad"><img src="./images/sku-02.jpeg" alt="02"/></div>
+    <div class="quad"><img src="./images/sku-03.jpeg" alt="03"/></div>
+    <div class="quad"><img src="./images/sku-04.jpeg" alt="04"/></div>
+  </div>
+  <div class="saint-no">Set No.13&nbsp;・&nbsp;Special Edition</div>
+  <h3 class="saint-name"><span class="seal">アシカ4枚組</span>★ 絶望セット</h3>
+  <div class="saint-color">アシカ系統&nbsp;・&nbsp;ジェリー樹脂&nbsp;・&nbsp;フルコンプリート</div>
+  <div class="saint-foot">
+    <div class="saint-price"><span class="y">¥</span>1,500</div>
+    <a class="notify-pill" href="#chapter-4" data-sku="13">入荷通知</a>
+  </div>`;
+grid.appendChild(despair);
+
+/* ===============================
+   SCROLL REVEAL
+   =============================== */
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      revealObs.unobserve(en.target);
+    }
+  });
+},{threshold:0.12, rootMargin:'0px 0px -80px 0px'});
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObs.observe(el));
+
+/* ===============================
+   COUNTER — 0 → 13
+   =============================== */
+const counterEl = document.querySelector('[data-count]');
+const target = +counterEl.dataset.count;
+let counterStarted = false;
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting && !counterStarted){
+      counterStarted = true;
+      let n = 0;
+      const step = target / 50;
+      const tick = ()=>{
+        n += step;
+        if(n >= target){counterEl.textContent = target; return;}
+        counterEl.textContent = Math.floor(n);
+        requestAnimationFrame(tick);
+      };
+      tick();
+    }
+  });
+},{threshold:0.5});
+counterObs.observe(counterEl);
+
+/* ===============================
+   STICKY NAV — show after hero
+   =============================== */
+const nav = document.getElementById('chapterNav');
+const navLinks = nav.querySelectorAll('a');
+const sections = ['chapter-1','chapter-2','chapter-3','chapter-4'].map(id=>document.getElementById(id));
+
+window.addEventListener('scroll', ()=>{
+  const past = window.scrollY > window.innerHeight * 0.6;
+  nav.classList.toggle('visible', past);
+
+  let active = null;
+  sections.forEach(sec=>{
+    const r = sec.getBoundingClientRect();
+    if(r.top < window.innerHeight*0.4 && r.bottom > 0) active = sec.id;
+  });
+  navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === active));
+}, {passive:true});
+
+/* ===============================
+   SIGNUP FORM — localStorage demo
+   =============================== */
+const form = document.getElementById('signupForm');
+const successEl = document.getElementById('signupSuccess');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value.trim();
+  if(!email) return;
+
+  /* Capture interested SKU if signed up via pill */
+  const url = new URL(window.location.href);
+  const interestedSku = url.searchParams.get('sku') || '';
+
+  /* localStorage demo — to be swapped for /api/waiting-list/subscribe (Supabase) */
+  const key = 'stickerverse_waitlist';
+  const list = JSON.parse(localStorage.getItem(key) || '[]');
+  if(!list.find(x => x.email === email)){
+    list.push({ email, interested_sku: interestedSku, source: 'museum-1.0', created_at: new Date().toISOString() });
+    localStorage.setItem(key, JSON.stringify(list));
+  }
+
+  successEl.classList.add('show');
+  form.querySelector('.signup-row').style.opacity = '.5';
+  form.querySelector('input').disabled = true;
+  form.querySelector('button').disabled = true;
+});
+
+/* Notify pills — pre-fill sku into URL */
+document.querySelectorAll('.notify-pill').forEach(p=>{
+  p.addEventListener('click', (e)=>{
+    const sku = p.dataset.sku;
+    if(sku){
+      const u = new URL(window.location.href);
+      u.searchParams.set('sku', sku);
+      history.replaceState(null,'',u);
+    }
+  });
+});
+
+/* ===============================
+   GOLD PARTICLES — soft ambient
+   =============================== */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize(){
+  W = canvas.width = window.innerWidth * devicePixelRatio;
+  H = canvas.height = window.innerHeight * devicePixelRatio;
+  canvas.style.width = window.innerWidth + 'px';
+  canvas.style.height = window.innerHeight + 'px';
+}
+resize();
+window.addEventListener('resize', resize);
+
+function spawn(){
+  const count = Math.min(50, Math.floor(window.innerWidth/24));
+  particles = [];
+  for(let i=0;i<count;i++){
+    particles.push({
+      x: Math.random()*W,
+      y: Math.random()*H,
+      r: (Math.random()*1.4 + .3) * devicePixelRatio,
+      vy: (Math.random()*.3 + .05) * devicePixelRatio,
+      vx: (Math.random()-.5)*.15 * devicePixelRatio,
+      a: Math.random()*.5 + .15,
+      tw: Math.random()*Math.PI*2
+    });
+  }
+}
+spawn();
+window.addEventListener('resize', spawn);
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    p.y += p.vy;
+    p.x += p.vx;
+    p.tw += .02;
+    if(p.y > H+10){p.y=-10; p.x=Math.random()*W;}
+    if(p.x > W+10) p.x=-10;
+    if(p.x < -10) p.x=W+10;
+
+    const glow = (Math.sin(p.tw)*.5+.5);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(168,124,38,${p.a * (.4 + glow*.6)})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
