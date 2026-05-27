@@ -820,6 +820,63 @@ section{
 }
 
 /* ===============================
+   B案 — MOBILE UX OPTIMIZATION
+   スマホ版でスクロール量を大幅圧縮
+   =============================== */
+@media (max-width: 768px){
+  /* ① カルーセルを完全に非表示 — スマホでは冗長 */
+  .carousel,
+  .carousel-controls{
+    display: none !important;
+  }
+
+  /* ② Chapter II 全体の余白を圧縮 */
+  #chapter-2{
+    padding: 80px 16px 60px !important;
+  }
+  .chapter2-header{
+    margin-bottom: 32px !important;
+  }
+  .chapter2-header .section-title{
+    margin-top: 12px;
+  }
+
+  /* ③ 「聖名簿・全一覧」見出しと、その上下の余白を整える */
+  #chapter-2 > div[style*="margin-top:120px"]{
+    margin-top: 24px !important;
+    padding: 0 !important;
+  }
+  #chapter-2 .section-mark[style*="margin-bottom:48px"]{
+    margin-bottom: 24px !important;
+  }
+
+  /* ④ グリッドカード間の余白を最適化 */
+  .saints-grid{
+    gap: 20px !important;
+  }
+
+  /* ⑤ Chapter III 信条の上下パディング圧縮 */
+  #chapter-3{
+    padding: 80px 20px !important;
+  }
+  .creed-grid{
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    margin-top: 40px !important;
+  }
+
+  /* ⑥ Chapter IV 近日開廷の上下パディング圧縮 */
+  #chapter-4{
+    padding: 80px 20px !important;
+  }
+
+  /* ⑦ Chapter I 序文のパディング調整 */
+  #chapter-1{
+    padding: 80px 20px !important;
+  }
+}
+
+/* ===============================
    CHAPTER III — CREED
    =============================== */
 #chapter-3{
