@@ -706,6 +706,29 @@ section{
 .saint-card:hover .saint-thumb img{
   transform:scale(1.04);
 }
+/* 第一波 #1 — 聖名簿カードの「詳細をひらく」体験の洗練 */
+.saint-card{
+  cursor: pointer;
+}
+.saint-card::after{
+  content: "ひらく ─";
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1);
+  pointer-events: none;
+}
+.saint-card:hover::after{
+  opacity: .85;
+  transform: translateX(0);
+}
 .saint-no{
   font-family:var(--font-serif);
   font-style:italic;
@@ -778,6 +801,36 @@ section{
   background:linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
   border:1px solid var(--gold);
   padding:32px;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(168,124,38,.08) inset, 0 18px 40px -20px rgba(168,124,38,.18);
+  transition: box-shadow .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.saint-card.despair:hover{
+  box-shadow: 0 0 0 1px var(--gold) inset, 0 28px 60px -22px rgba(168,124,38,.34);
+  transform: translateY(-4px);
+}
+/* 第一波 #6 — 「4体セット限定」上品バッジ */
+.saint-card.despair::before{
+  content: "✦  4聖 セット 限定  ✦";
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: .35em;
+  color: var(--gold);
+  padding: 5px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgba(250,246,238,.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
+}
+/* 絶望セットには通常カードの「ひらく」hoverテキストを出さない */
+.saint-card.despair::after{
+  display: none;
 }
 .saint-card.despair .saint-thumb{
   background:transparent;
@@ -976,14 +1029,45 @@ section{
   color:var(--gold);
   font-weight:400;
 }
+/* 第一波 #2 — 開廷タイトル下の金色の装飾ライン */
+.open-title::after{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 28px auto 0;
+  opacity: .7;
+}
 .open-sub{
   font-family:var(--font-display);
   font-size:18px;
   line-height:2;
   color:var(--ink-soft);
   max-width:560px;
-  margin:0 auto 56px;
+  margin:0 auto 24px;
   position:relative;z-index:1;
+}
+/* 第一波 #2 — 控えめな社会的証明 */
+.waiting-note{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: .15em;
+  margin: 0 auto 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: .85;
+}
+.waiting-note .num{
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 4px;
+  letter-spacing: 0;
 }
 
 .signup-form{
@@ -1357,12 +1441,16 @@ footer{
     最初の入荷情報を、メールでお届けします。
   </p>
 
+  <div class="waiting-note reveal">
+    現在、<span class="num">87</span> 名が、最初の鐘の音を待っています。
+  </div>
+
   <form class="signup-form reveal" id="signupForm">
     <div class="signup-row">
-      <input type="email" id="emailInput" placeholder="あなたのメールアドレス" required />
-      <button type="submit" class="signup-btn">通知を受け取る</button>
+      <input type="email" id="emailInput" placeholder="例：fubin@example.com" required />
+      <button type="submit" class="signup-btn">開廷を待つ</button>
     </div>
-    <div class="signup-note">※ 入荷タイミングのみお知らせします。広告メールはお送りしません。</div>
+    <div class="signup-note">※ 入荷の鐘の音だけ、そっとお届けします。広告メールは送りません。</div>
     <div class="signup-success" id="signupSuccess">✦ 登録完了。開廷の日に、最初の鐘をお鳴らしします。</div>
   </form>
 
