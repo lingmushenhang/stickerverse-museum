@@ -1268,146 +1268,6 @@ footer{
   section{padding:80px 24px;}
   .saints-grid{grid-template-columns:1fr;}
 }
-
-/* ===============================
-   MAISON MODAL — 第二波 高級化
-   =============================== */
-.sv-modal *,.sv-modal *::before,.sv-modal *::after{box-sizing:border-box;}
-.sv-modal{
-  position:fixed;inset:0;z-index:1000;
-  display:flex;align-items:center;justify-content:center;
-  padding:5vh 4vw;opacity:0;pointer-events:none;
-  transition:opacity .32s ease;
-}
-.sv-modal[aria-hidden="false"]{opacity:1;pointer-events:auto;}
-.sv-modal__backdrop{
-  position:absolute;inset:0;
-  background:rgba(31,26,20,.55);
-  backdrop-filter:blur(16px) saturate(1.05);
-  -webkit-backdrop-filter:blur(16px) saturate(1.05);
-}
-.sv-modal__shell{
-  position:relative;width:100%;max-width:980px;
-  max-height:90vh;overflow-y:auto;
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:2px;
-  box-shadow:0 60px 120px rgba(31,26,20,.38),0 20px 40px rgba(31,26,20,.20),inset 0 0 0 1px rgba(255,251,240,.6);
-  transform:translateY(12px) scale(.97);
-  transition:transform .42s cubic-bezier(.16,1,.3,1);
-}
-.sv-modal[aria-hidden="false"] .sv-modal__shell{transform:translateY(0) scale(1);}
-.sv-modal__shell::before{
-  content:"";position:absolute;inset:12px;
-  border:1px solid rgba(168,124,38,.16);
-  pointer-events:none;border-radius:1px;
-}
-.sv-modal__close{
-  position:absolute;top:20px;right:24px;
-  width:36px;height:36px;background:transparent;border:none;
-  color:var(--gold);font-family:var(--font-serif);
-  font-size:28px;line-height:1;cursor:pointer;z-index:2;
-  transition:color .2s ease,transform .3s ease;
-}
-.sv-modal__close:hover{color:var(--gold-deep);transform:rotate(90deg);}
-.sv-modal__grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;padding:56px;
-}
-.sv-modal__artifact{margin:0;padding-right:48px;display:flex;flex-direction:column;align-items:center;}
-.sv-modal__matte{
-  width:100%;aspect-ratio:1;
-  background:linear-gradient(180deg,var(--paper) 0%,var(--paper-deep) 100%);
-  border:1px solid rgba(168,124,38,.28);
-  padding:36px;display:flex;align-items:center;justify-content:center;
-  position:relative;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(168,124,38,.08);
-}
-.sv-modal__matte::before{
-  content:"";position:absolute;inset:14px;
-  border:1px solid rgba(168,124,38,.20);pointer-events:none;
-}
-.sv-modal__image{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(31,26,20,.10));}
-.sv-modal__caption{
-  margin-top:18px;font-family:var(--font-serif);
-  font-size:10px;font-style:italic;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--gold);text-align:center;
-}
-.sv-modal__testament{padding-left:8px;display:flex;flex-direction:column;}
-.sv-modal__catalog{
-  display:flex;align-items:baseline;gap:8px;
-  font-family:var(--font-serif);font-size:11px;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;
-}
-.sv-modal__catalog-label{font-style:italic;}
-.sv-modal__title{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(28px,4vw,44px);line-height:1.32;
-  letter-spacing:.01em;color:var(--ink);margin:0 0 18px 0;
-}
-.sv-modal__color{
-  font-family:var(--font-serif);font-style:italic;
-  font-size:15px;letter-spacing:.06em;color:var(--gold-deep);margin-bottom:24px;
-}
-.sv-modal__color::before{
-  content:"Color  /  ";font-size:10px;letter-spacing:.24em;
-  text-transform:uppercase;font-style:normal;color:var(--gold);opacity:.7;
-}
-.sv-modal__divider{
-  height:1px;
-  background:linear-gradient(90deg,transparent 0%,rgba(168,124,38,.45) 20%,rgba(168,124,38,.45) 80%,transparent 100%);
-  margin:4px 0 20px 0;
-}
-.sv-modal__tale{
-  font-family:var(--font-serif);font-style:italic;
-  font-size:15px;line-height:1.9;color:var(--ink-soft);margin:0 0 18px 0;
-}
-.sv-modal__verse{
-  font-family:var(--font-display);font-weight:400;
-  font-size:18px;line-height:2.1;letter-spacing:.06em;
-  color:var(--ink);margin:0 0 24px 0;white-space:pre-line;
-}
-.sv-modal__spec{margin:0 0 28px 0;display:flex;flex-direction:column;gap:6px;}
-.sv-modal__spec-row{
-  display:grid;grid-template-columns:80px 1fr;
-  align-items:baseline;font-family:var(--font-display);font-size:13px;
-  padding:6px 0;border-bottom:1px solid var(--line-soft);
-}
-.sv-modal__spec-row dt{font-family:var(--font-serif);font-style:italic;color:var(--ink-mute);letter-spacing:.1em;margin:0;}
-.sv-modal__spec-row dd{color:var(--ink);font-weight:500;margin:0;}
-.sv-modal__price{
-  display:flex;align-items:baseline;gap:4px;
-  font-family:var(--font-display);color:var(--ink);margin-bottom:24px;
-}
-.sv-modal__price-currency{font-family:var(--font-serif);font-style:italic;color:var(--gold);font-size:20px;}
-.sv-modal__price-amount{font-size:36px;font-weight:700;letter-spacing:.01em;}
-.sv-modal__cta{
-  position:relative;display:inline-flex;align-items:center;justify-content:space-between;
-  gap:16px;padding:16px 28px;background:transparent;border:1px solid var(--ink);
-  color:var(--ink);text-decoration:none;font-family:var(--font-display);
-  font-size:14px;letter-spacing:.05em;font-weight:500;cursor:pointer;
-  overflow:hidden;border-radius:999px;transition:color .32s ease;
-}
-.sv-modal__cta::before{
-  content:"";position:absolute;inset:0;background:var(--ink);
-  transform:translateX(-101%);transition:transform .48s cubic-bezier(.65,0,.35,1);z-index:0;
-}
-.sv-modal__cta:hover{color:var(--paper);}
-.sv-modal__cta:hover::before{transform:translateX(0);background:var(--gold);}
-.sv-modal__cta-text,.sv-modal__cta-arrow{position:relative;z-index:1;}
-.sv-modal__cta-arrow{transition:transform .32s ease;}
-.sv-modal__cta:hover .sv-modal__cta-arrow{transform:translateX(4px);}
-.sv-modal__note{
-  margin-top:14px;font-family:var(--font-serif);font-style:italic;
-  font-size:12px;letter-spacing:.1em;color:var(--ink-mute);text-align:left;
-}
-body.sv-modal-open{overflow:hidden;}
-@media (max-width:768px){
-  .sv-modal{padding:3vh 3vw;}
-  .sv-modal__grid{grid-template-columns:1fr;padding:32px 24px;gap:24px;}
-  .sv-modal__artifact{padding-right:0;}
-  .sv-modal__testament{padding-left:0;}
-  .sv-modal__close{top:12px;right:12px;}
-}
 </style>
 </head>
 
@@ -1616,37 +1476,6 @@ body.sv-modal-open{overflow:hidden;}
 
 </main>
 
-<!-- ============ MAISON MODAL ============ -->
-<div class="sv-modal" id="svModal" aria-hidden="true" role="dialog" aria-labelledby="svModalTitle">
-  <div class="sv-modal__backdrop" data-sv-close></div>
-  <div class="sv-modal__shell" role="document">
-    <button class="sv-modal__close" type="button" aria-label="閉じる" data-sv-close><span aria-hidden="true">×</span></button>
-    <div class="sv-modal__grid">
-      <figure class="sv-modal__artifact">
-        <div class="sv-modal__matte"><img class="sv-modal__image" id="svModalImage" src="" alt="" /></div>
-        <figcaption class="sv-modal__caption" id="svModalCaption"></figcaption>
-      </figure>
-      <div class="sv-modal__testament">
-        <div class="sv-modal__catalog"><span class="sv-modal__catalog-label">聖</span><span id="svModalNumber"></span></div>
-        <h2 class="sv-modal__title" id="svModalTitle"></h2>
-        <div class="sv-modal__color" id="svModalColor"></div>
-        <div class="sv-modal__divider" aria-hidden="true"></div>
-        <p class="sv-modal__tale" id="svModalTale"></p>
-        <p class="sv-modal__verse" id="svModalVerse"></p>
-        <div class="sv-modal__divider" aria-hidden="true"></div>
-        <dl class="sv-modal__spec">
-          <div class="sv-modal__spec-row"><dt>種族</dt><dd id="svModalLineage"></dd></div>
-          <div class="sv-modal__spec-row"><dt>質感</dt><dd id="svModalTexture"></dd></div>
-          <div class="sv-modal__spec-row"><dt>仕様</dt><dd>60 × 90 mm ・ PVC + グロスラミネート</dd></div>
-        </dl>
-        <div class="sv-modal__price"><span class="sv-modal__price-currency">¥</span><span class="sv-modal__price-amount" id="svModalPrice"></span></div>
-        <a class="sv-modal__cta" id="svModalCta" href="#chapter-4"><span class="sv-modal__cta-text">入荷通知を受け取る</span><span class="sv-modal__cta-arrow" aria-hidden="true">→</span></a>
-        <p class="sv-modal__note">Mercari ショップ開廷時、最初にお報せします</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer>
   <div class="footer-grid">
     <div>
@@ -1682,18 +1511,18 @@ body.sv-modal-open{overflow:hidden;}
    DATA — The 13 Saints
    =============================== */
 const SAINTS = [
-  {no:"01", name:"王冠が、重い", color:"パールグレー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-01.jpeg", tale:"金の王冠、真珠のネックレス。誰かが寄こした名誉が、首にずっしりと食い込む夜。", verse:"継ぎたくなかった血を、首がただ支えている。\nこれが、王であるということ。"},
-  {no:"02", name:"残高、ゼロ",  color:"ロゼピンク", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-02.jpeg", tale:"IMPERIAL DEBT CARD、PAYMENT REFUSED。虹色の涙が頬を伝う、月末の決済画面。", verse:"通帳の白は、純度の証。\nゼロという数字の、完成された美しさ。"},
-  {no:"03", name:"終電、逃した", color:"ラベンダー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-03.jpeg", tale:"くしゃくしゃの切符を抱きしめて、ホームに散らばる涙のしずく。", verse:"プラットフォームに置き去られた、一夜の貴族。\n始発までの時間は、星より遠い。"},
-  {no:"04", name:"散財、止まらず", color:"クリーム", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-04.jpeg", tale:"STICKERVERSE MAISONの紙袋から覗く、恍惚とした泣き顔。買い物は、薬。", verse:"甘い色をした、止まらぬ出血。\nクリームの底に、口座が静かに沈む。"},
-  {no:"05", name:"給料、消えた", color:"ブラック銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-05.png", tale:"給料明細、¥0×6マス。星屑の毛皮の中で、ふたつの涙が銀河を流れる。", verse:"銀河に散ったはずの賃金は、\n還る軌道を持たない流星のままだ。"},
-  {no:"06", name:"推し、卒業", color:"クリームアイボリー", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-06.png", tale:"ハート型のペンライト。最後の公演、最後の名前。世界が静かに終わる音。", verse:"舞台が終わってから、観客は本物の喪に服す。\n拍手の残響だけが、独り暮らしの家具になる。"},
-  {no:"07", name:"家賃、来た", color:"ネイビー銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-07.png", tale:"巨大な「家賃」封筒に頭を潰されながら、星屑の涙だけが煌めく。", verse:"扉の向こうから、必ず来る。\n否、必ず来てしまう、月の終わり。"},
-  {no:"08", name:"貯金、漏出中", color:"ローズピーチ", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-08.png", tale:"ティアラを頂きながら、真珠のしずくが一粒、また一粒、毛皮の外へ。", verse:"ローズ色した亀裂から、\n未来が静かに、しかし確実に漏れていく。"},
-  {no:"09", name:"氷山、溶けゆく", color:"パール白", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-09.png", tale:"足元の氷が、ゆっくりと小さくなっていく。それでもまだ、座っている。", verse:"白の終焉。氷の貴族、最後の溜息。\n水になることでしか、もう旅立てない。"},
-  {no:"10", name:"二度寝、しすぎた", color:"シーフォーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-10.png", tale:"星柄の高級枕に沈み込んで、Zzz。罪悪感さえも、もちもちに包まれて。", verse:"ベッドという海に、二度沈むことの、\nその甘やかな罪深さ。"},
-  {no:"11", name:"冷蔵庫、空っぽ", color:"バタークリーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-11.png", tale:"開いた扉の向こうに、魚の骨が一本。空腹は、最も静かな絶望のひとつ。", verse:"バターの色した光が、空洞を照らす。\nそれは、空腹という名のシャンデリア。"},
-  {no:"12", name:"マッチング、ゼロ", color:"ダスティモーヴ", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-12.png", tale:"画面に表示された数字、0。割れたハートと共に流れる、もちもちの涙。", verse:"誰にも選ばれぬという、\nもっとも気高い称号。"},
+  {no:"01", name:"王冠が、重い", color:"パールグレー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-01.jpeg", tale:"金の王冠、真珠のネックレス。誰かが寄こした名誉が、首にずっしりと食い込む夜。"},
+  {no:"02", name:"残高、ゼロ",  color:"ロゼピンク", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-02.jpeg", tale:"IMPERIAL DEBT CARD、PAYMENT REFUSED。虹色の涙が頬を伝う、月末の決済画面。"},
+  {no:"03", name:"終電、逃した", color:"ラベンダー", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-03.jpeg", tale:"くしゃくしゃの切符を抱きしめて、ホームに散らばる涙のしずく。"},
+  {no:"04", name:"散財、止まらず", color:"クリーム", lineage:"アシカ", texture:"ジェリー樹脂", price:"¥400", file:"sku-04.jpeg", tale:"STICKERVERSE MAISONの紙袋から覗く、恍惚とした泣き顔。買い物は、薬。"},
+  {no:"05", name:"給料、消えた", color:"ブラック銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-05.png", tale:"給料明細、¥0×6マス。星屑の毛皮の中で、ふたつの涙が銀河を流れる。"},
+  {no:"06", name:"推し、卒業", color:"クリームアイボリー", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-06.png", tale:"ハート型のペンライト。最後の公演、最後の名前。世界が静かに終わる音。"},
+  {no:"07", name:"家賃、来た", color:"ネイビー銀河", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-07.png", tale:"巨大な「家賃」封筒に頭を潰されながら、星屑の涙だけが煌めく。"},
+  {no:"08", name:"貯金、漏出中", color:"ローズピーチ", lineage:"アルパカ", texture:"ベルベット毛並み", price:"¥400", file:"sku-08.png", tale:"ティアラを頂きながら、真珠のしずくが一粒、また一粒、毛皮の外へ。"},
+  {no:"09", name:"氷山、溶けゆく", color:"パール白", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-09.png", tale:"足元の氷が、ゆっくりと小さくなっていく。それでもまだ、座っている。"},
+  {no:"10", name:"二度寝、しすぎた", color:"シーフォーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-10.png", tale:"星柄の高級枕に沈み込んで、Zzz。罪悪感さえも、もちもちに包まれて。"},
+  {no:"11", name:"冷蔵庫、空っぽ", color:"バタークリーム", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-11.png", tale:"開いた扉の向こうに、魚の骨が一本。空腹は、最も静かな絶望のひとつ。"},
+  {no:"12", name:"マッチング、ゼロ", color:"ダスティモーヴ", lineage:"アザラシ", texture:"もちもち", price:"¥400", file:"sku-12.png", tale:"画面に表示された数字、0。割れたハートと共に流れる、もちもちの涙。"},
 ];
 
 /* ===============================
@@ -1766,7 +1595,6 @@ const grid = document.getElementById('saintsGrid');
 SAINTS.forEach((s,i)=>{
   const card = document.createElement('article');
   card.className = 'saint-card';
-  card.dataset.svOpen = s.no;
   card.innerHTML = `
     <div class="saint-thumb"><img src="./images/${s.file}" alt="${s.name}" loading="lazy"/></div>
     <div class="saint-no">聖 No.${s.no}</div>
@@ -1782,7 +1610,6 @@ SAINTS.forEach((s,i)=>{
 /* Despair set — placeholder quadtych built from #01-#04 */
 const despair = document.createElement('article');
 despair.className = 'saint-card despair';
-despair.dataset.svOpen = '13';
 despair.innerHTML = `
   <div class="saint-thumb">
     <div class="quad"><img src="./images/sku-01.jpeg" alt="01"/></div>
@@ -1887,7 +1714,6 @@ form.addEventListener('submit', (e)=>{
 /* Notify pills — pre-fill sku into URL */
 document.querySelectorAll('.notify-pill').forEach(p=>{
   p.addEventListener('click', (e)=>{
-    e.stopPropagation();   /* モーダルを開かせない — pillは従来通りChapter IVへ */
     const sku = p.dataset.sku;
     if(sku){
       const u = new URL(window.location.href);
@@ -1950,82 +1776,6 @@ function draw(){
   requestAnimationFrame(draw);
 }
 draw();
-
-/* ===============================
-   MAISON MODAL — open / close
-   =============================== */
-(function(){
-  const modal = document.getElementById('svModal');
-  if(!modal) return;
-  const E = {
-    image:document.getElementById('svModalImage'),
-    caption:document.getElementById('svModalCaption'),
-    number:document.getElementById('svModalNumber'),
-    title:document.getElementById('svModalTitle'),
-    color:document.getElementById('svModalColor'),
-    tale:document.getElementById('svModalTale'),
-    verse:document.getElementById('svModalVerse'),
-    lineage:document.getElementById('svModalLineage'),
-    texture:document.getElementById('svModalTexture'),
-    price:document.getElementById('svModalPrice'),
-    cta:document.getElementById('svModalCta')
-  };
-  let lastFocused = null;
-
-  /* 絶望セット(13)用の特別データ */
-  const DESPAIR = {
-    no:"13", name:"絶望セット", color:"アシカ四聖、ひと揃い",
-    lineage:"アシカ系統", texture:"ジェリー樹脂",
-    file:"sku-01.jpeg", price:"1,500",
-    tale:"アシカの聖名簿、四つの不憫をひとつの宝箱に。Maisonの起点。",
-    verse:"四つの不憫を、ひとつの宝箱に。\nアシカの聖名簿、Maisonの起点。"
-  };
-
-  function findSaint(no){
-    if(no === '13') return DESPAIR;
-    return SAINTS.find(s => s.no === no);
-  }
-
-  function open(no){
-    const s = findSaint(no);
-    if(!s) return;
-    lastFocused = document.activeElement;
-    E.image.src = './images/' + s.file;
-    E.image.alt = s.name;
-    E.caption.textContent = s.lineage + '  /  ' + s.color;
-    E.number.textContent = 'No.' + s.no;
-    E.title.textContent = s.name;
-    E.color.textContent = s.color;
-    E.tale.textContent = s.tale;
-    E.verse.textContent = s.verse;
-    E.lineage.textContent = s.lineage;
-    E.texture.textContent = s.texture;
-    E.price.textContent = (s.price || '400').replace('¥','');
-    E.cta.href = '#chapter-4';
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('sv-modal-open');
-    requestAnimationFrame(()=>{ const b=modal.querySelector('.sv-modal__close'); if(b) b.focus(); });
-  }
-  function close(){
-    modal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('sv-modal-open');
-    if(lastFocused && lastFocused.focus) lastFocused.focus();
-  }
-
-  document.addEventListener('click', (e)=>{
-    const opener = e.target.closest('[data-sv-open]');
-    if(opener){ open(opener.dataset.svOpen); return; }
-    const closer = e.target.closest('[data-sv-close]');
-    if(closer){ e.preventDefault(); close(); }
-  });
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
-  });
-  /* CTAクリックは閉じてからアンカー遷移 */
-  E.cta.addEventListener('click', ()=>{ setTimeout(close, 80); });
-
-  window.SVModal = { open, close };
-})();
 </script>
 </body>
 </html>
